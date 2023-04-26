@@ -1,99 +1,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sensor Dashboard</title>
-    <style>
-        /* Dashboard container */
-        .container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 20px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          background-color: #f8f8f8;
-        }
+	<title>Sensor Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<style>
+		/* Global Styles */
+		body {
+			font-family: 'Montserrat', sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #090909;
+			background-color: #f8f8f8;
+			position: relative;
+			padding-top: 40px;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			font-weight: bold;
+			color: #080808;
+		}
+		p {
+			margin: 0;
+		}
+		a {
+			color: #007bff;
+			text-decoration: none;
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 0 auto;
+			margin-bottom: 30px;
+			background-color: #fff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+			overflow: hidden;
+		}
+		th, td {
+			padding: 12px 15px;
+			text-align: center;
+			font-size: 14px;
+			border-bottom: 1px solid #f2f2f2;
+		}
+		th {
+			background-color: #333;
+			color: #fff;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.header {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		.footer {
+			text-align: center;
+			margin-top: 30px;
+			font-size: 12px;
+			color: #777;
+		}
+		.error {
+			text-align: center;
+			font-size: 14px;
+			font-weight: bold;
+			color: #f00;
+			margin-bottom: 20px;
+		}
 
-        /* Dashboard table */
-        table {
-          border-collapse: collapse;
-          width: 100%;
-          margin-bottom: 20px;
-        }
+		/* Media Queries */
+		@media screen and (max-width: 768px) {
+			.container {
+				padding: 10px;
+			}
+			table {
+				font-size: 12px;
+			}
+			.header {
+				margin-bottom: 20px;
+			}
+			.footer {
+				margin-top: 20px;
+				font-size: 10px;
+			}
+		}
 
-        table th, table td {
-          padding: 12px;
-          text-align: center;
-          font-weight: bold;
-          font-size: 1.2em;
-        }
-
-        table th {
-          background-color: #333;
-          color: #fff;
-        }
-
-        table tr:nth-child(even) {
-          background-color: #f2f2f2;
-        }
-
-        /* Error message */
-        .error {
-          color: red;
-          font-weight: bold;
-          text-align: center;
-          margin-top: 20px;
-          font-size: 1.2em;
-        }
-
-        /* Header */
-        .header {
-          text-align: center;
-          margin-bottom: 20px;
-        }
-
-        .header h1 {
-          font-size: 2em;
-          font-weight: bold;
-          color: #333;
-        }
-
-        /* Footer */
-        .footer {
-          text-align: center;
-          margin-top: 20px;
-          font-size: 0.8em;
-          color: #777;
-        }
-
-    </style>
+		/* GitHub Button Styles */
+		.github-btn {
+			display: block;
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			padding: 10px 20px;
+			background-color: #f9f7f7;
+			color: #0a0a0a;
+			font-size: 18px;
+			font-weight: bold;
+			border-radius: 15px;
+			box-shadow: 0 0 15px rgba(5, 5, 5, 0.5);
+			text-align: center;
+			text-decoration: none;
+			overflow: hidden;
+		z-index: 9999;
+	}
+	.github-btn:hover {
+		background-color: #9a9999;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	}
+	.github-btn img {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 0px;
+		height: 30px;
+		width: 30px;
+	}
+</style>
 </head>
 <body>
-    <h1>Sensor Dashboard</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Timestamp</th>
-                <th>Temperature</th>
-                <th>Humidity</th>
-                <th>Pressure</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in data %}
-            <tr>
-                <td>{{ row.created_at }}</td>
-                <td>{{ row.temperature }}°C</td>
-                <td>{{ row.humidity }}%</td>
-                <td>{{ row.pressure }}Pa</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
-    <script>
-        setInterval(function() {
-            location.reload();
-        }, 5000);
-    </script>
+	<div class="container">
+		<a href="https://github.com/Mohammed-Rahman-sherif/Sensor-Dashboard" class="github-btn">
+			<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
+			GitHub
+		</a>
+		<header class="header">
+			<h1>Sensor Dashboard</h1>
+		</header>
+		<table>
+			<thead>
+				<tr>
+					<th>Timestamp</th>
+					<th>Temperature</th>
+					<th>Humidity</th>
+					<th>Pressure</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in data %}
+				<tr>
+					<td>{{ row.created_at }}</td>
+					<td>{{ row.temperature }}°C</td>
+					<td>{{ row.humidity }}%</td>
+					<td>{{ row.pressure }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+<!-- Add a button to refresh the data -->
+<button class="refresh-btn" onclick="location.reload();">
+	<span>Refresh Data</span>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="#ffffff" d="M22.8 13.2c-.6-5.6-5.2-10-10.8-10.1V2.2L12.8 0v4.1c3.7.1 6.8 3 6.9 6.7h4.1l-2.1 2.2zm-15 6.8c.6 5.6 5.2 10 10.8 10.1v3.7L19.2 24v-4.1c-3.7-.1-6.8-3-6.9-6.7h-4.1l2.1-2.2z"/></svg>
+  </button>
+  
+  <style>
+	.refresh-btn {
+	  display: inline-flex;
+	  align-items: center;
+	  justify-content: center;
+	  border: none;
+	  background-color: #007bff;
+	  color: #fff;
+	  font-size: 16px;
+	  font-weight: bold;
+	  padding: 14px 28px;
+	  border-radius: 5px;
+	  cursor: pointer;
+	  transition: all 0.2s ease-in-out;
+	  animation: rotate 2s linear infinite;
+	}
+  
+	.refresh-btn:hover {
+	  background-color: #0056b3;
+	}
+  
+	.refresh-btn span {
+	  margin-right: 10px;
+	}
+  
+	.refresh-btn svg {
+	  width: 20px;
+	  height: 20px;
+	  margin-left: 10px;
+	  fill: #fff;
+	  transform-origin: center center;
+	}
+  
+	@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.refresh-btn {
+  animation: pulse 1s ease-in-out infinite;
+}
+h1 {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+  </style>
+  
+
+<!-- Add a footer with some text -->
+<footer class="footer">
+	<p>&copy; 2023 Sensor Dashboard. All rights reserved.</p>
+</footer>
+</div> <!-- end of container div -->
 </body>
-</html>
+</html>	
+			

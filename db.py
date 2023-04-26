@@ -2,7 +2,7 @@ import psycopg2
 from datetime import datetime
 import pytz
 
-data = {'temperature': 2, 'humidity': 4, 'pressure': 10}
+data = {'temperature': 5, 'humidity': 10, 'pressure': 10}
 
 # define database connection details
 conn = psycopg2.connect(database="postgres", user="postgres", password="MASHAALLAH", host="localhost", port="5432")
